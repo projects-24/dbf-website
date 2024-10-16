@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+:root{
+    --p: #E2263C;
+    --p2: #05BA63;
+    --p3: #05BA63;
+    --p4: #A0F0C9;
+    --pl: #E6F3ED;
+
+    --s: #343232;
+    --s2: #C9595A;
+    --s3: #D06C6D;
+    --s4: #D67F7F;
+    --sl: #E8DDDD;
+
+    --navtop-height: 30px;
+    --nav-height: 50px;
+
+    --sp_xs: 0.4rem;
+    --sp_sm: 0.8rem;
+    --sp: 1rem;
+    --sp_lg:1.2rem;
+    --sp_xl: 1.6rem;
+    --sp_xxl: 2rem;
+
+}
+
+*{box-sizing: border-box; font-family: "DM Sans", sans-serif;scroll-behavior: smooth !important; }
+body{overflow-x: hidden !important;}
+/* Background color classes */
+.bg-p { background-color: var(--p) !important; }
+.bg-p2 { background-color: var(--p2); }
+.bg-p3 { background-color: var(--p3); }
+.bg-p4 { background-color: var(--p4); }
+.bg-pl { background-color: var(--pl); }
+
+.bg-s { background-color: var(--s) !important; }
+.bg-s2 { background-color: var(--s2); }
+.bg-s3 { background-color: var(--s3); }
+.bg-s4 { background-color: var(--s4); }
+.bg-sl { background-color: var(--sl); }
+
+/* Text color classes */
+.text-p { color: var(--p); }
+.text-p2 { color: var(--p2); }
+.text-p3 { color: var(--p3); }
+.text-p4 { color: var(--p4); }
+.text-pl { color: var(--pl); }
+
+.text-s { color: var(--s); }
+.text-s2 { color: var(--s2); }
+.text-s3 { color: var(--s3); }
+.text-s4 { color: var(--s4); }
+.text-sl { color: var(--sl); }
+
+/* Deep color background with white text */
+.bg-p, .bg-p2, .bg-p3, .bg-s, .bg-s2, .bg-s3 {
+    color: white;
+}
+
+/* Light color background with deep color text */
+.bg-p4, .bg-pl, .bg-s4, .bg-sl {
+    color: var(--p);
+}
+a{
+    font-size: var(--sp_sm) !important;
+    text-transform: uppercase;
+}
+.active{color: var(--p); font-weight: bold;}
+.important{
+    position: relative;
+}
+.important::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -0.2rem;
+    width: 2rem;
+    padding: 0.1rem;
+    background-color: var(--p);
+}
+.button{ border-radius: 0 !important;padding: 0.9rem 1rem !important;}
+.navtop{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--navtop-height);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--sp);
+    padding: var(--sp);
+    z-index: 2;
+}
+.hline{height: var(--sp);border-left: 0.1rem solid #ffe3e3;}
+.nav_bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--sp) 5%;
+    position: fixed;
+    top: var(--navtop-height);
+    width: 100%;
+    z-index: 2;
+    height: var(--nav-height);
+}
+.c_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 500%;
+    overflow-x: hidden !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    animation: Slide 2s linear infinite;
+
+}
+
+.home{
+    padding: calc(var(--nav-height) + var(--navtop-height) + 1rem) 1rem 4rem 1rem !important;
+}
+
+.row-flex.gap{gap: 1rem !important;}
+.iconic{
+    display: flex;
+    grid-area: 0.4rem;
+    align-items: center !important;
+}
+i{margin: 0 !important;padding: 0 !important;}
+.button{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.7rem !important;
+}
+.btn_primary{
+    background-color: var(--p) !important;
+    color: #ffffff;
+}
+
+._main_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 5rem 5%;
+}
+
+.no_display{
+    display: none !important;
+}
+.active{
+    font-weight: bolder;
+    color: var(--p);
+}
+.section{
+    margin-top: 1rem;
+}
+.section2{
+    margin-top: 2rem;
+}
+.section4{
+    margin-top: 4rem;
+}
+.wrapper{min-height: 90vh; padding: 4rem 2rem;}
+.contain{
+    max-width: 900px; width: 100%;margin: 0 auto;
+}
+.width-1000-max{
+    max-width: 1000px;
+}
+.light_curved{
+    background-color: var(--pl);
+    /* border-radius: 10rem; */
+}
+
+
+.header{
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+.dashed{
+    padding: 3px;
+    width: 30px;
+    border-radius: 3rem;
+}
+.central{
+    align-items: center;
+    justify-content: center;
+}
+
+[data-aos] {
+overflow-x: none !important;
+  }
+
+  .team-member-info{
+    margin-top: 1rem;
+    padding: 1rem;
+    border-left: 0.5rem solid var(--p);
+  }
