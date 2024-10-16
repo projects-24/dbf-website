@@ -1,13 +1,72 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PRODUCTS } from "./data/products";
 import { _TEAM } from "./data/team";
 
+import Div from 'funuicss/ui/div/Div'
+import Text from 'funuicss/ui/text/Text'
+import Grid from 'funuicss/ui/grid/Grid'
+import Col from 'funuicss/ui/grid/Col'
+import Container from 'funuicss/ui/container/Container'
+import Section from 'funuicss/ui/specials/Section'
+import Button from 'funuicss/ui/button/Button'
+import Input from 'funuicss/ui/input/Input'
+import RowFlex from 'funuicss/ui/specials/RowFlex'
+import List from 'funuicss/ui/list/List'
+import ListItem from 'funuicss/ui/list/Item'
+import {FunGet} from 'funuicss/js/Fun'
+import Alert from 'funuicss/ui/alert/Alert'
+import dynamic from "next/dynamic";
+// const { _SENDMAIL } = dynamic(()=>import("./functions/mail") ,{ssr:false})
 
 export default function Home() {
   const [show_tony, setshow_tony] = useState(false)
+  const [success, setsuccess] = useState(false)
+  const [error, seterror] = useState(false)
+  const [errMessage, seterrMessage] = useState('')
+
+  useEffect(() => {
+    setTimeout(() => {
+      seterror(false)
+      setsuccess(false)
+    }, 4000);
+  
+    return () => {
+      clearTimeout()
+    }
+  }, [error , success])
+  
+
+  const SendMessage = () => {
+    let firstName , lastName, email, message
+    firstName = FunGet.val('#firstName').value
+    lastName = FunGet.val('#lastName').value
+    email = FunGet.val('#email').value
+    message = FunGet.val('#message').value
+    
+    if(firstName && lastName && email && message) {
+      // _SENDMAIL(firstName , lastName, email, message)
+      // .then(res => console.log(res))
+      // .catch(err => {
+      //   seterrMessage('An error occurred while sending your message.')
+      //   console.log(err)
+      //   seterror(true)
+      // })
+  }else{
+     seterrMessage('Please all fields must be entered!')
+     seterror(true)
+  
+  }
+
+}
    return (
    <main>
+    {
+    success && <Alert fixed='top-right' message="Your message has been submitted successfully." standard type="success" card />
+    }
+    {
+    error && <Alert message={errMessage} standard type="danger" fixed='top-right' card/>
+    }
    <div class="navtop dark300">
     <div class="text-bold">
       020 373 6363
@@ -288,6 +347,64 @@ export default function Home() {
         </div>
   
         </div>
+
+
+        <Div margin="5rem 0" >
+    <Grid>
+        <Col sm={12} md={5} lg={5} funcss="padding">
+        <Text
+        text="Send a message"
+        heading='h2'
+        block
+        />
+        <Section />
+        <Text
+        text="Your information is kept private and not shared anywhere else."
+        block
+        color="dark400"
+        />
+        <Section />
+        <List >
+            <ListItem funcss="h4">Your can:</ListItem>
+            <ListItem>1. Request for assistance</ListItem>
+            <ListItem>2. Place an order</ListItem>
+            <ListItem>3. Talk to customer service</ListItem>
+            <ListItem>4. Place a complain</ListItem>
+            </List>
+
+        </Col>
+        <Col sm={12} md={7} lg={7} funcss="padding">
+      <Section gap={1}>
+      <RowFlex gap={2}>
+        <Col >
+        <Text text="First Name" block bold size="small" color="p" funcss="margin-bottom-10" />
+        <Input id='firstName' fullWidth bordered />
+        </Col>
+        <Col  > 
+        <Text text="Last Name" block bold size="small" color="p" funcss="margin-bottom-10" />
+        <Input id='lastName' fullWidth bordered />
+        </Col>
+      </RowFlex>
+      </Section>
+      <Section gap={1}>
+        <Text text="Email" block bold size="small" color="p" funcss="margin-bottom-10" />
+        <Input id='email' type="email" fullWidth bordered />
+      </Section>
+      <Section gap={1}>
+        <Text text="Message" block bold size="small" color="p" funcss="margin-bottom-10" />
+        <Input id='message' multiline rows={3} fullWidth bordered />
+      </Section>
+      <Section gap={1}>
+       <Button
+       text="Submit"
+       raised 
+       bg="bg-p"
+       onClick = {() => SendMessage()}
+       />
+      </Section>
+        </Col>
+    </Grid>
+</Div>
   </div>
 </div>
 
@@ -321,3 +438,4 @@ export default function Home() {
    </main>
   );
 }
+

@@ -5,6 +5,7 @@
     --p3: #05BA63;
     --p4: #A0F0C9;
     --pl: #E6F3ED;
+    --primary: #E2263C;
 
     --s: #343232;
     --s2: #C9595A;
@@ -78,7 +79,7 @@ a{
     padding: 0.1rem;
     background-color: var(--p);
 }
-.button{ border-radius: 0 !important;padding: 0.9rem 1rem !important;}
+.button{ border-radius: 0 !important;padding: 0.6rem 1rem !important;}
 .navtop{
     position: fixed;
     top: 0;
