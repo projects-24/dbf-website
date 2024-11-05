@@ -1,7 +1,8 @@
 import localFont from "next/font/local";
 import 'funuicss/css/fun.css'
 import "./assets/style/_style.css";
-
+import "./assets/style/_Slide.css";
+import "aos/dist/aos.css"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

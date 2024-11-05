@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { PRODUCTS } from "./data/products";
 import { _TEAM } from "./data/team";
-
+import Aos from 'aos'
 import Div from 'funuicss/ui/div/Div'
 import Text from 'funuicss/ui/text/Text'
 import Grid from 'funuicss/ui/grid/Grid'
@@ -17,6 +17,10 @@ import ListItem from 'funuicss/ui/list/Item'
 import {FunGet} from 'funuicss/js/Fun'
 import Alert from 'funuicss/ui/alert/Alert'
 import dynamic from "next/dynamic";
+import Nav from "@/components/Nav";
+import {PiDiamondsFour, PiSketchLogo, PiUserCheck} from 'react-icons/pi'
+import Footer from "@/components/Footer";
+import TextUi from "@/ui/Text";
 // const { _SENDMAIL } = dynamic(()=>import("./functions/mail") ,{ssr:false})
 
 export default function Home() {
@@ -59,6 +63,10 @@ export default function Home() {
   }
 
 }
+useEffect(() => {
+  Aos.init()  
+  }, [])
+
    return (
    <main>
     {
@@ -67,52 +75,38 @@ export default function Home() {
     {
     error && <Alert message={errMessage} standard type="danger" fixed='top-right' card/>
     }
-   <div class="navtop dark300">
-    <div class="text-bold">
-      020 373 6363
-    </div>
-    <div class="hline"></div>
-    <div >
-      <a href="mailto:info@dbfconcreteblocks.com"  class="text-white">info@dbfconcreteblocks.com</a>
-    </div>
-  </div>
-  <div class="nav_bar card">
-     <a href="#home"> <img src="/images/logo.jpg" class="height-40" alt="" /></a>
-  <div class="hide-small">
-    <div class="row-flex gap">
-      <a href="#home" class="nav_link text-dark400  text-minified">Home</a>
-      <a href="#services" class="nav_link text-dark400  text-minified">Services</a>
-      <a href="#about" class="nav_link text-dark400  text-minified">About</a>
-      <a href="#our_team" class="nav_link text-dark400  text-minified">Our Team</a>
-    </div>
-  </div>
-    <div>
-     <div class="row-flex gap">
-      <a href="#why_us" class="nav_link text-dark400  text-small text-bold important">WHY DBF?</a>
-      <a href="#contact" class="nav_link text-dark400  text-small text-bold important" >
-      <div class="iconic">  <i class="ph ph-phone"></i> CALL US</div>
-      </a>
-     </div>
-    </div>
-  </div>
-
+  <Nav />
   <div id="home"></div>
-  <div class="home row ">
-    <div class="col sm-12 md-6 lg-6 padding">
-      <video src="/assets/video/main.mp4" loop data-aos="fade-right" class="fit hide-small" muted autoplay></video>
-      <video src="/assets/video/main.mp4"  class="fit show-small" controls  ></video>
-    </div>
-    <div class="col sm-12 md-6 lg-6 padding-20" data-aos="fade-left">
-      <div class="h1 text-p text-bold">Enhance Your Construction Projects with High-Quality Concrete Blocks! </div>
+  
+<ul class="slideshow">
+	<li><span></span></li>
+  <li><span>2</span></li>
+	<li><span></span></li>
+	<li><span></span></li>
+	<li><span></span></li>
+</ul>
+  <div class="home">
+
+    <div className="width-700-max fit center">
+    <div class="padding-20" data-aos="fade-left">
+      <TextUi
+      text="Boost Your Projects with Quality Concrete Blocks!"
+      block 
+      lineHeight="100%"
+      size='big'
+      funcss="text-p"
+      />
+      <div className="text-dark600">
       <div class="margin-top-30">
-        <div class="article">
+        <div class="article h5">
           Introducing our state-of-the-art concrete block factory, your one-stop solution for all your construction needs. 
         </div>
       </div>
       <div class="margin-top-20">
-        <div class="article">
+        <div class="article h5">
           Danko Block Factory (DBF BLOCKS) was established (2022) based on our absolute dedication to honest business practices, quality products and friendly customer services.  
         </div>
+      </div>
       </div>
       <div class="margin-top-30" >
         <div class="row-flex gap">
@@ -125,6 +119,8 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </div>
+  
     </div>
 
 
@@ -167,7 +163,7 @@ export default function Home() {
 
 
     <div id="about"></div>
-  <div class="wrapper">
+  <div class="wrapper ">
     <div class="contain center" >
       <div class="margin-bottom-40" data-aos="fade-up">
         <img src="/images/us.jpg" class="fit" alt="" />
@@ -200,7 +196,7 @@ export default function Home() {
         <div class="row  text-center central" style={{alignItems:'flex-start'}}>
           <div class="col sm-12 lg-4 md-4 padding">
             <div data-aos="fade-right" class="border padding">
-              <i class="ph ph-sketch-logo text-jumbo text-p"></i>
+              <PiSketchLogo size={'5rem'} className="text-p" />
               <div class="section"></div>
               <h6 class="text-bold uppercase">Trust</h6>
               <p class="article text-minified">
@@ -210,7 +206,7 @@ export default function Home() {
           </div>
           <div class="col sm-12 lg-4 md-4 padding">
             <div data-aos="fade-up" class="border padding">
-              <i class="ph ph-diamonds-four  text-jumbo text-p"></i>
+              <PiDiamondsFour size={'5rem'} className="text-p" />
               <div class="section"></div>
               <h6 class="text-bold uppercase">Integrity</h6>
               <p class="article text-minified">
@@ -221,6 +217,7 @@ export default function Home() {
           <div class="col sm-12 lg-4 md-4 padding">
             <div data-aos="fade-left" class="border padding">
               <i class="ph ph-user-check  text-jumbo text-p"></i>
+              <PiUserCheck size={'5rem'} className="text-p" />
               <div class="section"></div>
               <h6 class="text-bold uppercase">Competency</h6>
               <p class="article text-minified">
@@ -314,10 +311,7 @@ export default function Home() {
             <h6 class="text-bold important margin-bottom-10 text-minified uppercase">Digital Address:</h6>
             <h5>XW-0277-5539, Beans Street</h5>
            </div>
-           <div class="section padding border">
-            <h6 class="text-bold important margin-bottom-10 text-minified uppercase">Email:</h6>
-            <h5>info@dbfconcreteblocks.com</h5>
-           </div>
+        
            <div class="section padding border">
             <h6 class="text-bold important margin-bottom-10 text-minified uppercase">Location:</h6>
             <div>DBF PLACE, DANKU </div>
@@ -331,13 +325,12 @@ export default function Home() {
                 <h2 class="h2  text-p" >
                   0201669966
                 </h2>
-                <h2 class=" h2  text-p" >
-                  0203736363
-                </h2>
-                <h2 class=" h2 text-p">
-                  0249200292
-                </h2>
+               
               </div>
+              <div class="section padding border">
+            <h6 class="text-bold important margin-bottom-10 text-minified uppercase">Email:</h6>
+            <h5>info@dbfconcreteblocks.com</h5>
+           </div>
            
             </div>
          
@@ -408,32 +401,7 @@ export default function Home() {
   </div>
 </div>
 
-<div class="section4  bg-s  padding-20">
-  <div class="width-1000-max center">
-    <div>
-      <div class="row-flex gap central" style={{alignItems:'flex-start'}}>
-        <div class="text-bold">Follow Us</div>
-        <div></div> 
-        <a href="https://web.facebook.com/dbfblocks">
-          <div class="dark200 text-dark900 pointer hover-up  central width-40 height-40">
-            <i class="ph ph-facebook-logo h4"></i>
-          </div>
-         </a>
-       <a href="https://www.instagram.com/bilclinicallabs">
-        <div class="dark200 text-dark900 pointer hover-up  central width-40 height-40">
-          <i class="ph ph-instagram-logo h4"></i>
-        </div>
-       </a>
-    
-      
-      </div>
-   
-    </div>
-    <div class="section2 text-center text-minified uppercase padding-top-40 padding-bottom-40"style={{borderTop:' 0.1rem solid #303030'}} >
-      ©2024 DBF - All Rights Reserved | Privacy Policy | Terms of Service
-    </div>
-  </div>
-</div>
+<Footer />
 
    </main>
   );

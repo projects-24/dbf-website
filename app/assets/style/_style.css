@@ -79,7 +79,7 @@ a{
     padding: 0.1rem;
     background-color: var(--p);
 }
-.button{ border-radius: 0 !important;padding: 0.6rem 1rem !important;}
+.button{ border-radius: 0 !important;padding: 1rem 1.2rem !important;}
 .navtop{
     position: fixed;
     top: 0;
@@ -133,7 +133,7 @@ i{margin: 0 !important;padding: 0 !important;}
 .button{
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 0.7rem !important;
+    /* font-size: 0.7rem !important; */
 }
 .btn_primary{
     background-color: var(--p) !important;
