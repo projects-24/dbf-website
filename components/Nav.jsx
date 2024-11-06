@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Nav() {
   return (
-    <div> <div class="navtop dark300">
-    <div class="text-bold">
-      0201669966
+    <div> <div class="navtop dark100">
+    <div >
+      Call or WhatsApp: <span className="text-bold">0201669966</span>
     </div>
     <div class="hline"></div>
     <div >
