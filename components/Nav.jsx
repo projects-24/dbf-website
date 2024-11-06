@@ -17,6 +17,7 @@ export default function Nav() {
     <div class="row-flex gap">
       <a href="#home" class="nav_link text-dark400  text-minified">Home</a>
       <a href="#services" class="nav_link text-dark400  text-minified">Services</a>
+      <a href="#article" class="nav_link text-dark400  text-minified">Article</a>
       <a href="#about" class="nav_link text-dark400  text-minified">About</a>
       <a href="#our_team" class="nav_link text-dark400  text-minified">Our Team</a>
     </div>

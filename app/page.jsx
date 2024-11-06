@@ -22,6 +22,7 @@ import Nav from "@/components/Nav";
 import {PiDiamondsFour, PiSketchLogo, PiUserCheck} from 'react-icons/pi'
 import Footer from "@/components/Footer";
 import TextUi from "@/ui/Text";
+import { _Articles } from "./functions/FaceBookPost";
 // const { _SENDMAIL } = dynamic(()=>import("./functions/mail") ,{ssr:false})
 
 export default function Home() {
@@ -299,10 +300,45 @@ useEffect(() => {
        </Animation>
           </div>
     </div>
+
+
+   
       </div>
   </div>
 
-
+<Animation>
+  <div className="wrapper dark900 text-dark">
+    <div className="container">
+    <div id="article"></div>
+        <div className="header" data-aos="fade-down">
+          <h2 className="h2 text-bold text-dark-300 text-center important">
+            Article
+          </h2>
+          <div className="section"></div>
+          <div>
+         Discover more about DBF
+          </div>
+        </div>
+    <div className="margin-top-50">
+      <div className="row">
+      {
+        _Articles.map((uri , i) => (
+          <div className="col sm-12 md-12 lg-6 margin-top-30 padding" key={i}>
+          <Animation>
+          <iframe 
+    src={uri}
+    width="100%" height="900" scrolling="no" 
+    frameborder="0" allowFullscreen="true" 
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+           </Animation>
+              </div>
+        ))
+      }
+      </div>
+    </div>
+    </div>
+  </div>
+</Animation>
  <Animation>
  <div className="wrapper dark800 text-dark">
   <div className="contain">
