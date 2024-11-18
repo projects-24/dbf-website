@@ -357,7 +357,7 @@ useEffect(() => {
           <div className="section4 padding">
             <div data-aos="fade-up">
               <img src="/images/team/ceo.jpg" className="width-300 section" alt="" />
-              <div className="text-bold h2 uppercase">Dr Tony Basignaa</div>
+              <div className="text-bold h2 uppercase">Dr. Tony Basingnaa</div>
               <div className="text-bold h6 uppercase text-p">Chief Executive Officer</div>
             </div>
             <div className="section2"></div>
